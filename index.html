@@ -116,6 +116,10 @@
 			.text{
 				color: black;	
 			}
+			.clickArea{
+				height:20vh;
+				width:80vw;
+			}
 
 
 			@media only screen and (max-width: 460px){
@@ -152,7 +156,7 @@
 	</head>
 
 
-	<body onkeypress="generateNewColor();" onclick="generateNewColor();">
+	<body onkeypress="generateNewColor();">
 		<p class="title text">COLORRRS</p>
 		<button class="text" onclick="generateNewColor();">GENERATE COLOR</button>
 		<p class="text">HEX-CODE</p>
@@ -162,6 +166,9 @@
 <!-- 			<i class="text fas fa-copy"></i> -->
 			<i class="fas fa-clone"></i>
 			</buton>
+		</div>
+		<div class="clickArea" onclick="generateNewColor();">
+			
 		</div>
 		<div class="insta">
 			<a href="https://www.instagram.com/harshiilllll/">
