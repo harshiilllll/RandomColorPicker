@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="icon" href="favicon.png" type="image/png" sizes="32x32px">
+
+		<!-- FontAwesome CDN -->
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" integrity="sha384-DyZ88mC6Up2uqS4h/KRgHuoeGwBcD4Ng9SiP4dIRy0EXTlnuz47vAwmeGwVChigm" crossorigin="anonymous">
+		<title>Random Color Picker</title>
+
+		<!-- Clipboard.JS CDN -->
+		<script src="https://cdn.jsdelivr.net/npm/clipboard@2.0.8/dist/clipboard.min.js"></script>
+
+
+		<style>
+			@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@300&display=swap');
+			@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200&display=swap');
+
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+			body {
+				background-color: #ffd454;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				height: 100vh;
+				width: 100%;
+				color: black;
+			}
+			.title{
+				position: absolute;
+				top: 2%;
+				left: 5%;
+				font-size: 1.5rem;
+				font-weight: 100;
+				font-family: 'Montserrat', sans-serif;
+			}
+			button {
+				align-items: center;
+				justify-content: center;
+				display: flex;
+				margin-bottom: 30px;
+				font-family: 'Barlow', sans-serif;
+				font-weight: 900;
+				letter-spacing: 3px;
+				word-spacing: 14px;
+				height: 50px;
+				outline: none;
+				border: 1.5px solid rgb(0, 0, 0);
+				border-radius: 4px;
+				background-color: transparent;
+				padding: 25px 40px;
+				color: rgb(0, 0, 0);
+				cursor: pointer;
+				transition: all 125ms step-start;
+			}
+			button:hover {
+				scale: 1.08;
+			}
+			p{
+				font-size: 1rem;
+				margin-bottom: 30px;
+				font-family: 'Barlow', sans-serif;
+			}
+			h1 {
+				font-size: 2.5rem;
+				font-family: 'Montserrat', sans-serif;
+				font-weight: 100;
+			}
+			.fa-copy{
+				font-size: 2.9rem;
+				margin-left: 20px;
+				cursor: pointer;
+				transition: all 125ms step-start;
+			}
+			.fa-copy:hover{
+				scale: 1.08;
+			}
+			div{
+				display: flex;
+			}
+			.copybtn{
+				padding: 0;
+				border: none;
+			}
+			.insta{
+				display: flex;
+				align-items: center;
+				padding: 3px 10px 3px 5px;
+				position: absolute;
+				bottom: 2%;
+				left: 5%;
+				color: #222 !important;
+			}
+			.insta:hover{
+				background-color: rgba(0, 0, 0, 0.1);
+			}
+			.insta a{
+				display: flex;
+				justify-content: center;
+				text-decoration: none;
+				color: black;
+			}
+			.insta a i{
+				font-size: 1.6rem;
+				margin-right: 10px;
+			}
+			.insta a p{
+				margin: 2px 0 0 0 ;
+			}
+			.text{
+				color: black;	
+			}
+
+
+			@media only screen and (max-width: 460px){
+				#hexcode{
+					font-size: 2rem;
+				}
+				.fa-copy{
+				mix-blend-mode: difference;
+					font-size: 2.3rem;
+					margin-bottom: 20px;
+				}
+				button {
+				padding: 15px 20px;
+				}
+				
+			}
+
+			@media only screen and (max-width: 380px){
+				#hexcode{
+					font-size: 1.5rem;
+				}
+				.fa-copy{
+					font-size: 1.7rem;
+					margin-bottom: 10px;
+				}	
+				button {
+					font-size: 0.7rem;
+					height: 40px;
+					padding: 5px 10px;
+				}
+			}
+
+		</style>
+
+	</head>
+
+
+	<body onkeypress="generateNewColor();">
+		<p class="title text">COLORRRS</p>
+		<button class="text" onclick="generateNewColor();">GENERATE COLOR</button>
+		<p class="text">HEX-CODE</p>
+		<div>
+			<h1 class="text" id="hexcode" onclick="generateNewColor();">HIT THE SPACEBAR</h1>
+			<button class="text copybtn" data-clipboard-target="#hexcode">
+			<i class="text fas fa-copy"></i>
+			</buton>
+		</div>
+		<div class="insta">
+			<a href="https://www.instagram.com/harshiilllll/">
+				<i class="text fab fa-instagram"></i>
+				<p class="text">harshiilllll</p>
+			</a>
+		</div>
+
+
+
+		<!-- SCRIPT------------------------------------------------------------------------ -->
+		<script>
+			// ClipboardJS object
+			let c1 = new ClipboardJS(".copybtn");
+			// Color genrate function
+			function generateNewColor(){
+				var letters, color;
+				letters = "0123456789ABCDEF";
+				color = "#"
+				for(var i=0;i<6;i++){
+					color = color + letters[Math.floor(Math.random()*16)];
+				}
+				document.getElementById('hexcode').innerHTML = color;
+				document.body.style.background = color;
+			}
+
+
+
+		</script>
+
+	</body>
+</html>
